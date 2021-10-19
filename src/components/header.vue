@@ -9,22 +9,22 @@
         <ul>
           <li>
             <img src="../assets/img/globus.svg" class="icon">
-            <a href="#" class="lang" @click="choseLang()"> Turkmen </a>
+            <a href="#" class="lang" @click="choseLang()"> Türkmen </a>
             <div class="animated-border"></div>
             <div id="lang-bar">
-              <div>Turkmen</div>
+              <div>Türkmen</div>
               <div>Russki</div>
               <div>English</div>
             </div>
           </li>
           <li>
             <img src="../assets/img/location.svg" class="icon">
-            <a href="#" class="location"> Yerleshyan yeri</a>
+            <a href="#" class="location"> Ýerleşýän ýeri</a>
             <div class="animated-border"></div>
           </li>
           <li>
             <img src="../assets/img/service.png" class="icon">
-            <a href="#" class="feedback"> Habarlashmak</a>
+            <a href="#" class="feedback"> Habarlaşmak</a>
             <div class="animated-border"></div>
           </li>
           <li>
@@ -39,7 +39,7 @@
         <div class="nav">
           <ul>
             <li>
-              <span>Bash sahypa</span>
+              <span>Baş sahypa</span>
             </li>
             <li><span>Ugratmak</span></li>
             <li><span>Kabul etmek</span></li>
