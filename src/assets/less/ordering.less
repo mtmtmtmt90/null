@@ -1,0 +1,119 @@
+@import (less) "const.less";
+
+.container{
+    position: relative;
+    padding: 50px 0px;
+    height: 630px;
+    background-image: url('../img/DELIVERY-INFORMATION-BANNER.jpg');
+    background-size: cover;
+    .name{
+        margin: 0 auto;
+        max-width: 700px;
+        height: 60px;
+        overflow: hidden;
+        animation: typing 3.5s steps(40,end);
+    }
+    @keyframes typing {
+        from{
+            max-width: 0px;
+        }
+        to{
+            max-width: 700px;
+        }
+    }
+    .banner{
+        margin: 30px 20px;
+        position: absolute;
+        //left: -630px;
+        transition-property: left;
+        transition-duration: 1s;
+        background-image: url('../img/Mobile_Shipping_and_delivery_600X470.png');
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 600px;
+        height: 470px;
+        box-shadow: 2px 0px 5px @main-color, -2px 0px 5px @main-color;
+        .black{
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 5;
+            left: 0;top: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content:center;
+            .blankToggle{
+                position:absolute;
+                background-color: white;
+                border-radius: 10px;
+                top: 50%;
+                font-size: 30px;
+                padding: 20px 30px;
+                cursor: pointer;
+                border: 5px solid @main-color;
+                transition-property: background-color;
+                transition-duration: 0.5s;
+            }
+            .blankToggle:hover{
+                background-color: @main-color-light;
+            }
+            .blankToggle:active{
+                opacity: 0.5;
+            }
+        }
+        .blank{
+            position: absolute;
+            background-image: url('../img/deliveryTrackingBlank.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            backface-visibility: hidden;
+            width: 600px;
+            height: 600px;
+            opacity: 0;
+            &.begin{
+                transform-style: preserve-3d;
+                animation-name: blank-show;
+                animation-duration: 1000ms;
+                animation-direction: reverse;
+                animation-timing-function: linear;
+                opacity: 1;
+            }
+            &.end{
+                .begin();
+                animation-direction: normal;
+                animation-fill-mode: both;
+                animation-duration: 1500ms;
+            }
+        }
+        .blank-backface{
+            .blank();
+            background-image: url('../img/Group-6.png');
+            z-index: 2;
+            transform: rotateY(180deg);
+            opacity: 0;
+            &.begin{
+                animation-duration: 1500ms;
+                opacity: 1;
+                animation-name: blank-show-backface;
+            }
+            &.end{
+                .begin();
+                animation-direction: normal;
+                animation-fill-mode: both;
+                animation-duration: 1000ms;
+            }
+        }
+        @keyframes blank-show {
+            to{
+                transform: scale(0.4) rotateY(180deg) rotateX(-55deg);
+            }
+        }
+        @keyframes blank-show-backface {
+            to{
+                transform: scale(0.4) rotateY(360deg) rotateX(-55deg);
+            }
+        }
+    }
+}

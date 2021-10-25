@@ -61,6 +61,7 @@ export default {
         resizeControl(){
             // default width = 1280px
             let windowWith = document.documentElement.clientWidth
+            document.getElementById('wrapper').style.height = `${windowWith / 3.2}px`
             document.getElementsByClassName('img3')[0].style.height = `${windowWith / 3.2}px`
             document.getElementsByClassName('img2')[0].style.height = `${windowWith / 3.2}px`
             document.getElementsByClassName('img1')[0].style.height = `${windowWith / 3.2}px`

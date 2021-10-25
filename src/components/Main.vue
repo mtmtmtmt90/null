@@ -1,14 +1,18 @@
 <template>
     <div>
         <carousel/>
+        <ordering/>
     </div>    
 </template>
 
 <script>
 import carousel from './carousel.vue'
+import ordering from './ordering.vue'
 export default {
     components:{
-        carousel
+        carousel,
+        ordering
+
     }
 }
 </script>
