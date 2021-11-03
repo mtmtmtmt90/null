@@ -8,7 +8,7 @@
     background-size: cover;
     .name{
         margin: 0 auto;
-        max-width: 700px;
+        max-width: 58%;
         height: 60px;
         overflow: hidden;
         animation: typing 3.5s steps(40,end);
@@ -18,7 +18,7 @@
             max-width: 0px;
         }
         to{
-            max-width: 700px;
+            max-width: 58%;
         }
     }
     .banner{
@@ -67,11 +67,12 @@
             background-image: url('../img/deliveryTrackingBlank.png');
             background-position: center;
             background-repeat: no-repeat;
-            background-size: cover;
+            background-size:cover;
             backface-visibility: hidden;
-            width: 600px;
-            height: 600px;
+            width: 400px;
+            height: 500px;
             opacity: 0;
+            padding: 100px 110px 0px 100px;
             &.begin{
                 transform-style: preserve-3d;
                 animation-name: blank-show;
@@ -81,10 +82,62 @@
                 opacity: 1;
             }
             &.end{
-                .begin();
+                transform-style: preserve-3d;
+                animation-name: blank-hide;
                 animation-direction: normal;
                 animation-fill-mode: both;
                 animation-duration: 1500ms;
+                animation-timing-function: linear;
+                opacity: 1;
+            }
+            & .write-place{
+                display: flex; flex-wrap: wrap;
+                font-size: 15px; 
+                font-weight: bold;
+                & .form-elem{
+                    margin: 0px 10px 20px;
+                }
+                & .form-address{
+                    .form-elem();
+                    width:80%;
+                    height: 50px;
+                    overflow: scroll;
+                    text-align: left;
+                    outline: none;
+                    text-decoration: underline;
+                    text-underline-offset: 2px;
+                    font-size: 13px;
+                }
+                & input{
+                    font-size: 13px;
+                    border: 0;
+                    border-bottom: 1px solid black;
+                }
+            }
+            & .form-button{
+                font-size: 17px;
+                border: 2px solid @main-color-dark;
+                border-radius: 7px;
+                cursor: pointer;
+                padding: 2px 20px;
+                min-width: 0;
+                max-width: fit-content;
+                margin: auto;
+                color: black;
+                transition: background-color 0.5s;
+                &.close{
+                    border-color: red;
+                    &:hover{
+                        background-color: rgb(252, 59, 59);
+                    }
+                }
+                &:hover{
+                    background-color: @main-color;
+                    
+                }
+                &:active{
+                    opacity: 0;
+                }
             }
         }
         .blank-backface{
@@ -99,10 +152,13 @@
                 animation-name: blank-show-backface;
             }
             &.end{
-                .begin();
+                transform-style: preserve-3d;
+                animation-name: blank-hide-backface;
                 animation-direction: normal;
                 animation-fill-mode: both;
                 animation-duration: 1000ms;
+                animation-timing-function: linear;
+                opacity: 1;
             }
         }
         @keyframes blank-show {
@@ -111,6 +167,16 @@
             }
         }
         @keyframes blank-show-backface {
+            to{
+                transform: scale(0.4) rotateY(360deg) rotateX(-55deg);
+            }
+        }
+        @keyframes blank-hide {
+            to{
+                transform: scale(0.4) rotateY(180deg) rotateX(-55deg);
+            }
+        }
+        @keyframes blank-hide-backface {
             to{
                 transform: scale(0.4) rotateY(360deg) rotateX(-55deg);
             }

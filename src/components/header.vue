@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <sign v-if="signBar" />
     <header>
       <div class="help">
         <div style="border-bottom:1px solid yellow;height:20px;width:300px;position:absolute;left:0px;">
@@ -27,7 +28,7 @@
             <a href="#" class="feedback"> Habarlaşmak</a>
             <div class="animated-border"></div>
           </li>
-          <li>
+          <li  @click="openSign()">
             <a href="#" class="sign-in"> Ulgama gir</a>
           </li>
         </ul>
@@ -61,10 +62,16 @@
 
 <script>
 
+import sign from './sign.vue'
+
 export default {
+  components:[
+    sign
+  ],
   data () {
     return {
-      langBar:false
+      langBar:false,
+      signBar:false
     }
   },
   methods:{
@@ -80,6 +87,9 @@ export default {
     },
     closeSection(e){
 
+    },
+    openSign(){
+      this.signBar = true
     }
   }
 }
