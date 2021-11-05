@@ -1,4 +1,18 @@
 .sign{
-    z-index: 999999;
-    color: red;
+    position: absolute;
+    z-index: 11;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: grid;
+    grid-template-areas: 
+    "a a a"
+    "a b a"
+    "a a a";
+    .sign-modal{
+        grid-area: b;
+        width: 500px;
+        height: 300px;
+        background: white;
+    }
 }

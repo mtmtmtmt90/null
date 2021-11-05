@@ -1,6 +1,20 @@
 <template>
   <div class="container">
-    <sign v-if="signBar" />
+    <sign v-if="signBar" @close="closeSign">
+      <template #otherText>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat quae ipsam soluta porro possimus beatae. Recusandae dolorum itaque cupiditate quaerat est iusto officia ex ipsa id eligendi, repudiandae aut quisquam.</div>  
+      </template>
+      <template #input>
+        <div>Agree?</div>
+        <div><input type="text" v-model="agreeInput" placeholder="type there..."></div>
+      </template>
+      <template #submit>
+        <button @click="tryAgree">Press</button>
+      </template>
+      <template #close>
+        <button @click="closeSign">Cancel</button>
+      </template>
+    </sign>    
     <header>
       <div class="help">
         <div style="border-bottom:1px solid yellow;height:20px;width:300px;position:absolute;left:0px;">
@@ -65,13 +79,12 @@
 import sign from './sign.vue'
 
 export default {
-  components:[
-    sign
-  ],
+  components: { sign },
   data () {
     return {
       langBar:false,
-      signBar:false
+      signBar:false,
+      agreeInput:''
     }
   },
   methods:{
@@ -88,8 +101,16 @@ export default {
     closeSection(e){
 
     },
+    tryAgree(){
+      if (this.agreeInput.toUpperCase() == 'YES') { alert('Thanks for accept policy!'); this.closeSign() } 
+    },
     openSign(){
+      document.body.style.overflowY = 'hidden'
       this.signBar = true
+    },
+    closeSign(){
+      document.body.style.overflowY = 'auto'
+      this.signBar = false
     }
   }
 }
